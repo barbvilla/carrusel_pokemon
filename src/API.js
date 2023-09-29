@@ -1,17 +1,14 @@
 const carouselInner = document.getElementById('cards');
 
-// Obtener los tipos de Pokémon desde la API
 fetch('https://pokeapi.co/api/v2/type/')
   .then(res => res.json())
   .then(typesData => {
     const types = typesData.results.map(type => type.name);
-    // Llamar a la función para buscar y mostrar Pokémon por tipos
     types.forEach(type => {
       getPokemons(type);
     });
   });
 
-// Función para obtener y mostrar Pokémon por tipo
 const getPokemons = (type) => {
   const promises = [];
 
@@ -43,17 +40,29 @@ const showPokemon = (pokemon, type) => {
       <div class="card card${forPokemon.id}" style="width: 18rem;">
         <img src="${forPokemon.image}" class="card-img-top" alt="${pokemon.name}" />
         <div class="card-body">
-          <h2 class="card-title">${forPokemon.name}</h2>
+          <h4 class="card-title">${forPokemon.name}</h2>
         </div>
       </div>
     </div>`).join("")
 
-  const typeSection = document.createElement('div');
-  typeSection.classList.add('type-section');
-  typeSection.innerHTML = `<h2>${type.toUpperCase()} POKEMON</h2>`;
-  typeSection.innerHTML += `<div class="row">${pokemonCard}</div>`;
-
-  carouselInner.appendChild(typeSection);
+    
+    if (pokemon.length > 0) {
+      const typeSection = document.createElement('div');
+      typeSection.classList.add('type-section');
+      typeSection.innerHTML = `<h3 class="type-title-${type}">${type.toUpperCase()} POKEMON</h2>`;
+      typeSection.innerHTML += `<div class="row">${pokemonCard}</div>`;
+  
+      carouselInner.appendChild(typeSection);
+      
+      $(typeSection.querySelector('.row')).slick({
+        infinite: true, 
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        dots: true,
+        arrow: true,
+        mobileFirst: true,
+      });
+    }    
 };
 
 getPokemons();

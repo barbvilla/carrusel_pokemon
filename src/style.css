@@ -1,3 +1,100 @@
-* {
-    background-color: rgb(249, 244, 237);
+body {
+    background-color: rgba(255, 250, 243, 0.817);
+    font-family: 'Pokemon Solid', sans-serif;
 }
+
+.title {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: red;
+    color: white;
+    letter-spacing: 5px;
+}
+
+.type-title-normal {
+    margin: 30px 0 40px 0;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #a9a77d;
+    text-shadow: #3c4247 1px 0 10px;
+}
+.type-title-fighting {
+    margin: 30px 0 40px 0;
+    text-align: center;
+    letter-spacing: 3px;
+    color: white;
+    
+}
+
+.type-title-fighting {
+    margin: 30px 0 40px 0;
+    text-align: center;
+    letter-spacing: 3px;
+    color: rgb(48, 48, 48);
+}
+.type-title-flying {
+
+}
+.type-title-poison {
+
+}
+.type-title-ground {
+
+}
+.type-title-rock {
+
+}
+.type-title-bug {
+
+}
+.type-title-ghost {
+
+}
+.type-title-stell {
+
+}
+.type-title-fire {
+
+}
+.type-title-fire {
+
+}
+.type-title-water {
+
+}
+.type-title-grass {
+
+}
+.type-title-electric {
+
+}
+.type-title-psychic {
+
+}
+.type-title-ice {
+
+}
+.type-title-dragon {
+
+}
+.type-title-fairy{
+
+}
+
+.slick-initialized .slick-slide{
+    height: fit-content;
+    width: fit-content;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.card {
+    text-align: center;
+}
+
+.card-title {
+    letter-spacing: 2px;
+    color: rgb(48, 48, 48);
+}
+

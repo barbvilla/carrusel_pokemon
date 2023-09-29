@@ -9,8 +9,8 @@
     "deploy": "gh-pages -d src"
   },
   "devDependencies": {
-    "serve": "^14.2.1",
-    "eslint": "^8.39.0"
+    "eslint": "^8.39.0",
+    "serve": "^14.2.1"
   },
   "author": "Bárbara Villaseñor",
   "license": "ISC"
