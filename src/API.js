@@ -12,16 +12,33 @@ const getPokemons = () => {
     .then(result => {
       const pokemon = result.map(data => ({
         id: data.id,
-        name: data.name,
+        name: data.name.toUpperCase(),
         image: data.sprites.front_default,
         types: data.types,
       }))
-      showPokemon(pokemon);
+      /* console.log(pokemon); */
+      /* showPokemon(pokemon); */
+      return pokemon
+    })
+    .then(res => {
+      res.forEach((pokemon) => {
+        const filteredPokemon = hasType(pokemon.types, "poison")
+        console.log(filteredPokemon);
+      })
+      
     })
 }
 
-const filterType = Object.groupBy(pokemon, ({ type }) => type);
-console.log(filterType);
+
+function hasType(types, t) {
+  /* console.log(types)
+  console.log(t) */
+  const filterByType = types.filter((el) => el.type.name.includes(t))
+  return filterByType;
+}
+
+/* const filterType = Object.groupBy(pokemon, ({ type }) => type);
+  console.log(filterType); */
 
 const showPokemon = (pokemon) => {
   const pokemonCard = pokemon.map(forPokemon => 
