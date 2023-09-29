@@ -1,29 +1,40 @@
-const carouselInner = document.querySelector('.cards');
+const carouselInner = document.getElementById('cards');
 
 const getPokemons = () => {
+  const promises = [];
+
   for (let i = 1; i <= 151; i++) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-      .then(res => res.json())
-      .then(data => {
-        const pokemon = {}
-        pokemon["id"] = data.id
-        pokemon["name"] = data.name
-        pokemon["image"] = data.sprites["front_default"]
-        pokemon["types"] = data.types
-        console.log(pokemon);
-      })
+    promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      .then(res => res.json()))
   }
+
+  Promise.all(promises)
+    .then(result => {
+      const pokemon = result.map(data => ({
+        id: data.id,
+        name: data.name,
+        image: data.sprites.front_default,
+        types: data.types,
+      }))
+      showPokemon(pokemon);
+    })
 }
 
-getPokemons();
+const filterType = Object.groupBy(pokemon, ({ type }) => type);
+console.log(filterType);
 
-function showPokemon(pokemon) {
-  pokemon.map((pokemon) => {
-    carouselInner.innerHTML = `
-      <div class="${pokemon.name}">
-          <h2>${pokemon.name}</h2>
-          <img src="${pokemon.images}" />
+const showPokemon = (pokemon) => {
+  const pokemonCard = pokemon.map(forPokemon => 
+    `<div class="col">
+      <div class="card card${forPokemon.id}" style="width: 18rem;">
+        <img src="${forPokemon.image}" class="card-img-top" alt="${pokemon.name}" />
+        <div class="card-body">
+          <h2 class="card-title">${forPokemon.name}</h2>
+        </div>
       </div>
-    `;
-  });
-}
+    </div>`).join("")
+
+  carouselInner.innerHTML = pokemonCard;
+};
+
+getPokemons()
