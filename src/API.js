@@ -1,6 +1,18 @@
 const carouselInner = document.getElementById('cards');
 
-const getPokemons = () => {
+// Obtener los tipos de Pokémon desde la API
+fetch('https://pokeapi.co/api/v2/type/')
+  .then(res => res.json())
+  .then(typesData => {
+    const types = typesData.results.map(type => type.name);
+    // Llamar a la función para buscar y mostrar Pokémon por tipos
+    types.forEach(type => {
+      getPokemons(type);
+    });
+  });
+
+// Función para obtener y mostrar Pokémon por tipo
+const getPokemons = (type) => {
   const promises = [];
 
   for (let i = 1; i <= 151; i++) {
@@ -15,34 +27,19 @@ const getPokemons = () => {
         name: data.name.toUpperCase(),
         image: data.sprites.front_default,
         types: data.types,
-      }))
-      /* console.log(pokemon); */
-      /* showPokemon(pokemon); */
-      return pokemon
-    })
-    .then(res => {
-      const poisonedPokemon = [];
-      res.forEach((pokemon) => {
-        if (hasType(pokemon.types, "grass")) {
-          poisonedPokemon.push(pokemon);
-        }
-      });
-      showPokemon(poisonedPokemon);
-    })
+      }));
+      const filteredPokemon = pokemon.filter(pokemon => hasType(pokemon.types, type));
+      showPokemon(filteredPokemon, type);
+    });
 }
 
 function hasType(types, t) {
-  const filterByType = types.some((el) => el.type.name === t);
-  return filterByType
-  
+  return types.some((el) => el.type.name === t);
 }
 
-/* const filterType = Object.groupBy(pokemon, ({ type }) => type);
-  console.log(filterType); */
-
-const showPokemon = (pokemon) => {
+const showPokemon = (pokemon, type) => {
   const pokemonCard = pokemon.map(forPokemon =>
-    `<div class="col">
+    `<div class="col-auto">
       <div class="card card${forPokemon.id}" style="width: 18rem;">
         <img src="${forPokemon.image}" class="card-img-top" alt="${pokemon.name}" />
         <div class="card-body">
@@ -51,7 +48,12 @@ const showPokemon = (pokemon) => {
       </div>
     </div>`).join("")
 
-  carouselInner.innerHTML = pokemonCard;
+  const typeSection = document.createElement('div');
+  typeSection.classList.add('type-section');
+  typeSection.innerHTML = `<h2>${type.toUpperCase()} POKEMON</h2>`;
+  typeSection.innerHTML += `<div class="row">${pokemonCard}</div>`;
+
+  carouselInner.appendChild(typeSection);
 };
 
-getPokemons()
+getPokemons();
