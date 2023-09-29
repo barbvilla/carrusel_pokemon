@@ -1,5 +1,6 @@
 {
   "name": "poke_api",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "\"Carrusel de Pokémon por Tipo\"",
   "main": "src/index.html",
@@ -8,7 +9,8 @@
     "deploy": "gh-pages -d src"
   },
   "devDependencies": {
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "eslint": "^8.39.0"
   },
   "author": "Bárbara Villaseñor",
   "license": "ISC"
