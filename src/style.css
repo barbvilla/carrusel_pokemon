@@ -1,100 +1,216 @@
 body {
-    background-color: rgba(255, 250, 243, 0.817);
-    font-family: 'Pokemon Solid', sans-serif;
+  background-color: rgba(255, 250, 243, 0.817);
+  font-family: 'Pokemon Solid', sans-serif;
 }
 
 .title {
-    text-align: center;
-    margin: 10px 0;
-    padding: 10px 0;
-    background-color: red;
-    color: white;
-    letter-spacing: 5px;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px 0;
+  background-color: red;
+  color: white;
+  letter-spacing: 5px;
+}
+
+#type-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  max-width: 100%;
+  margin: 50px 0;
+}
+
+#type-nav button {
+  flex-basis: calc(100% / 10 - 10px);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box; 
+  text-align: center;
+  background-color: #0d6efd;
+  color: white;
+  letter-spacing: 2px;
+  -webkit-text-stroke: 0.5px black;
+  border-radius: 10px;
+  border: none;
+}
+
+#type-nav button:nth-child(10n) {
+  margin-right: 0;
 }
 
 .type-title-normal {
-    margin: 30px 0 40px 0;
-    text-align: center;
-    letter-spacing: 3px;
-    color: #a9a77d;
-    text-shadow: #3c4247 1px 0 10px;
-}
-.type-title-fighting {
-    margin: 30px 0 40px 0;
-    text-align: center;
-    letter-spacing: 3px;
-    color: white;
-    
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #f2ead6;
+  text-shadow: #3c4247 1px 0 10px;
 }
 
 .type-title-fighting {
-    margin: 30px 0 40px 0;
-    text-align: center;
-    letter-spacing: 3px;
-    color: rgb(48, 48, 48);
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #f2ead6;
+  text-shadow: #3c4247 1px 0 10px;
 }
+
+.type-title-fighting {
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #cc9ea8;
+  text-shadow: #f1c852 1px 0 10px;
+}
+
 .type-title-flying {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #c4b8f6;
+  text-shadow: #3c4247 1px 0 10px;
 }
+
 .type-title-poison {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #bb83c2;
+  text-shadow: #61605e 1px 0 10px;
 }
+
 .type-title-ground {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #e4c06c;
+  text-shadow: #3c4247 1px 0 10px;
 }
+
 .type-title-rock {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #ecd5a1;
+  text-shadow: #6b6d86 1px 0 10px;
 }
+
 .type-title-bug {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #c7cf7b;
+  text-shadow: #3c4247 1px 0 10px;
 }
+
 .type-title-ghost {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #a191b9;
+  text-shadow: #daba7d 1px 0 10px;
 }
-.type-title-stell {
 
+.type-title-steel {
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #bbb9cf;
+  text-shadow: #7a5f82 1px 0 10px;
 }
+
 .type-title-fire {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #e9af81;
+  text-shadow: #713340 1px 0 10px;
 }
-.type-title-fire {
 
-}
 .type-title-water {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #9ac3cf;
+  text-shadow: #232d2f 1px 0 10px;
 }
+
 .type-title-grass {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #6f9f6d;
+  text-shadow: #bf695c 1px 0 10px;
 }
+
 .type-title-electric {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #f3d155;
+  text-shadow: #bf6a57 1px 0 10px;
 }
+
 .type-title-psychic {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #fa5588;
+  text-shadow: #949ccd 1px 0 10px;
 }
+
 .type-title-ice {
-
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #a4d6d7;
+  text-shadow: #8276b0 1px 0 10px;
 }
+
 .type-title-dragon {
-
-}
-.type-title-fairy{
-
-}
-
-.slick-initialized .slick-slide{
-    height: fit-content;
-    width: fit-content;
-    justify-content: center;
-    margin: 20px 0;
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #9d7ef3;
+  text-shadow: #929d8f 1px 0 10px;
 }
 
+.type-title-fairy {
+  margin: 40px 0 20px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #ecc0c9;
+  text-shadow: #706c87 1px 0 10px;
+}
+
+.slick-initialized .slick-slide {
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+  margin: 20px 0;
+}
+.slick-track {
+  margin:auto;
+}
+
+.cards {
+  align-items: center;
+}
 .card {
-    text-align: center;
+  text-align: center;  
+}
+
+.type-section {
+  justify-content: center;
 }
 
 .card-title {
-    letter-spacing: 2px;
-    color: rgb(48, 48, 48);
+  letter-spacing: 2px;
+  color: rgb(48, 48, 48);
 }
 
+@media screen and (max-width: 600px) {
+  .type-title {
+    margin: 20px 0;
+  }
+}
