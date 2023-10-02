@@ -1,6 +1,6 @@
 {
   "name": "poke_api",
-  "type": "commonjs",
+  "type": "module",
   "version": "1.0.0",
   "description": "\"Carrusel de Pokémon por Tipo\"",
   "main": "src/index.html",
